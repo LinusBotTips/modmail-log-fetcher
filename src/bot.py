@@ -26,12 +26,6 @@ class LogBot(commands.Bot):
         )
         self.loop.create_task(self.prepare_bot())
 
-    async def prepare_bot(self):
-        log.info("Connecting to database...")
-        # self.mongo = motor.motor_asyncio.AsyncIOMotorClient(
-        #     os.getenv("MONGO"))        
-        log.info("Database connection established.")
-
     def load_cogs(self):
         for file in os.listdir(str(Path(__file__).parents[0]) + "/cogs"):
             if file.endswith(".py") and not file.startswith("_"):
