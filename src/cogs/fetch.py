@@ -23,7 +23,7 @@ class LogFind(commands.Cog):
 
     @commands.slash_command(name="fetch", guild_ids=test_guilds, description="Fetches modmail log from the database")
     @commands.guild_only()
-    async def test(self, inter: disnake.ApplicationCommandInteraction, logkey: str) -> None:
+    async def fetch(self, inter: disnake.ApplicationCommandInteraction, logkey: str) -> None:
         await inter.response.defer()
         myclient = pymongo.MongoClient(os.getenv("MONGO"))
         mydb = myclient["modmail_bot"]
