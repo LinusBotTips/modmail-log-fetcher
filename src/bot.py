@@ -24,7 +24,6 @@ class LogBot(commands.Bot):
             format="(%(asctime)s) %(levelname)s %(message)s",
             datefmt="%m/%d/%y - %H:%M:%S %Z"
         )
-        self.loop.create_task(self.prepare_bot())
 
     def load_cogs(self):
         for file in os.listdir(str(Path(__file__).parents[0]) + "/cogs"):
