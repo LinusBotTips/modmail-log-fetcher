@@ -40,7 +40,7 @@ class LogFind(commands.Cog):
         for x in messages:
             embed.add_field(name=f"`{x['author']['name']}({x['author']['id']})`", value=f"{x['content']}", inline=False)
             
-        await inter.response.followup(embeds=[embed])
+        await inter.followup.send(embeds=[embed])
  
         for y in messages[31:]:
             embed2.add_field(name=f"`{y['author']['name']}({y['author']['id']})`", value=f"{y['content']}", inline=False)
