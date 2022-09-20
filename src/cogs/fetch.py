@@ -38,9 +38,11 @@ class LogFind(commands.Cog):
         embed2 = disnake.Embed(color=disnake.Color.blurple())    
         embed.set_author(name="Modmail Log", icon_url=avatar)
         for x in messages:
+            if x['content'] == "":
+                continue
             embed.add_field(name=f"`{x['author']['name']}({x['author']['id']})`", value=f"{x['content']}", inline=False)
             
-        await inter.followup.send(embeds=[embed])
+        await inter.edit_original_message(embeds=[embed])
  
         for y in messages[31:]:
             embed2.add_field(name=f"`{y['author']['name']}({y['author']['id']})`", value=f"{y['content']}", inline=False)
